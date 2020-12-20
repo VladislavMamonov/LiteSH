@@ -56,8 +56,17 @@ void NetWorking_server()
 }
 
 
-int main()
+int main(int argc, char const *argv[])
 {
+  if (argc == 2) {
+    if (strcmp(argv[1], "-silent") == 0) {
+      setsid();
+      chdir("/");
+      fclose(stdout);
+      fclose(stderr);
+    }
+  }
+
   NetWorking_server();
   return 0;
 }

@@ -1,0 +1,17 @@
+[Unit]
+Description=LiteSH_server
+
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/home/vladislav/LiteSH/bin/LiteSH_server -silent
+ExecReload=/home/vladislav/LiteSH/bin/LiteSH_server -silent
+TimeoutStartSec=120
+KillMode=control-group
+OOMScoreAdjust=-1000
+
+
+[Install]
+WantedBy=multi-user.target
