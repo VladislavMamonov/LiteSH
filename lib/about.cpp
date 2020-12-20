@@ -14,7 +14,7 @@ extern "C" {
     cout << "and also send signals to other processes" << endl << endl;
     cout <<  "Authors: Semyon Karulev, Vladislav Mamonov, Roman Suksin" << endl << endl;
 
-    ifstream signals("/home/vladislav/OS/LiteSH/bin/signals.txt");
+    ifstream signals("../bin/signals.txt");
     string SigName;
 
     cout << "Available signal numbers: " << endl;

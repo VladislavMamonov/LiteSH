@@ -28,4 +28,3 @@ int RecvSignal(int signum);
 
 int NetWorking_client(char *command);
 void NetWorking_server();
-pid_t net_proc();

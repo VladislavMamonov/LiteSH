@@ -1,6 +1,9 @@
 os: linux
 language: cpp
 script:
+  - make LiteSH
+  - make LiteSH_server
+  - cd lib
   - make
 
 compiler: g++

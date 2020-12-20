@@ -1,18 +1,6 @@
 #include "LiteSH.hpp"
 
 
-int pid_SaveFile()
-{
-  ofstream pid_file("/run/LiteSH.pid");
-  if (pid_file.is_open() == 0) return 1;
-
-  pid_file << getpid() << endl;
-
-  pid_file.close();
-  return 0;
-}
-
-
 int main(int argc, char const *argv[])
 {
   if (argc == 2) {
@@ -24,12 +12,9 @@ int main(int argc, char const *argv[])
     }
   }
 
-  pid_t server_pid = net_proc();
-  if (pid_SaveFile() == 1)
-    cout << "Unable to create pid file, restart the program as administrator" << endl << endl;
 
   char *error;
-  void *handle = dlopen("/home/vladislav/OS/LiteSH/lib/libabout.so", RTLD_LAZY);
+  void *handle = dlopen("../lib/libabout.so", RTLD_LAZY);
   if (!handle) {
     fputs (dlerror(), stderr);
     return 1;
@@ -125,7 +110,6 @@ int main(int argc, char const *argv[])
     }
   }
 
-  SendSignal(server_pid, SIGKILL);  // завершаем работу сервера
   dlclose(handle);
   return 0;
 }
